@@ -253,7 +253,7 @@ def feature_loss(fmap_r, fmap_g):
     for dr, dg in zip(fmap_r, fmap_g):
         for rl, gl in zip(dr, dg):
             m_size = min(rl.shape[2], gl.shape[2])
-            loss += torch.mean(torch.abs(rl[:, :, :m_size] - gl[:, :, m_size]))
+            loss += torch.mean(torch.abs(rl[:, :, :m_size] - gl[:, :, :m_size]))
 
     return loss * 2
 
